@@ -1,0 +1,50 @@
+﻿@model TattooShop.Models.Pago
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pago</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.desde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.desde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hasta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hasta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.efectivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.efectivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Artista.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artista.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ca55f53fc8b84131a343aec55c064ebf" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Artista" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Cita" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Cliente" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Pago" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TipoTrabajo" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Trabajo" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Cita_Artista" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Pago_Artista" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Trabajo_Artista" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Cita_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Cita_TipoTrabajo" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Trabajo_Cita" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Trabajo_Pago" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
