@@ -1,64 +1,101 @@
 ﻿@model TattooShop.Models.Pago
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Crear Pago";
 }
 
-<h2>Create</h2>
+@section Breadcumb {
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="@Url.Action("Index")">Pagos</a></li>
+        <li class="breadcrumb-item active">Nuevo</li>
+    </ol>
+}
 
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Pago</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.desde, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.desde, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.desde, "", new { @class = "text-danger" })
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                Crear nuevo
+                <div class="card-actions">
+                    <a href="@Url.Action("Index")"><i class="ti-arrow-left"></i> Volver</a>
+                </div>
             </div>
-        </div>
+            <div class="card-body">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.hasta, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.hasta, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.hasta, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.efectivo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.efectivo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.efectivo, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                @using (Html.BeginForm("Create", "Clientes", FormMethod.Post, new { @class = "form-material", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.artista_id, "artista_id", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("artista_id", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.artista_id, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.desde, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.desde, new { htmlAttributes = new { @class = "form-control", @placeholder = "DD/MM/YYYY HH:mm" } })
+                                @Html.ValidationMessageFor(model => model.desde, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.hasta, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.hasta, new { htmlAttributes = new { @class = "form-control", @placeholder = "DD/MM/YYYY HH:mm" } })
+                                @Html.ValidationMessageFor(model => model.hasta, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.efectivo, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.efectivo, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.efectivo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.artista_id, "artista_id", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("artista_id", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.artista_id, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Guardar" class="btn btn-outline-primary" />
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
 
+@section Styles {
+    <link href="@Url.Content("~/Content/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css")" rel="stylesheet">
+    <!-- Date picker plugins css -->
+    <link href="@Url.Content("~/Content/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css")" rel="stylesheet" type="text/css" />
+}
+
 @section Scripts {
+
+    <script src="@Url.Content("~/Content/plugins/moment/moment.js")"></script>
+    <script src="@Url.Content("~/Content/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js")"></script>
+    <script>
+        // Date Picker
+        $('#desde').bootstrapMaterialDatePicker({
+            format: 'DD/MM/YYYY HH:mm'
+        });
+        $('#hasta').bootstrapMaterialDatePicker({
+            format: 'DD/MM/YYYY HH:mm'
+        });
+    </script>
+
+    <!-- Style switcher -->
+    <!-- ============================================================== -->
+    <script src="@Url.Content("~/Content/plugins/styleswitcher/jQuery.style.switcher.js")"></script>
     @Scripts.Render("~/bundles/jqueryval")
 }

@@ -11,6 +11,7 @@ using TattooShop.Models;
 
 namespace TattooShop.Controllers
 {
+    [Authorize]
     public class TrabajosController : Controller
     {
         private Entities db = new Entities();

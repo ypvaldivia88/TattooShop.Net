@@ -11,7 +11,8 @@ namespace TattooShop.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Cita
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,8 +24,14 @@ namespace TattooShop.Models
         public int id { get; set; }
         public System.DateTime fecha { get; set; }
         public double deposito { get; set; }
+
+        [Display(Name = "Cliente")]
         public Nullable<int> cliente_id { get; set; }
+
+        [Display(Name = "Tipo de Trabajo")]
         public Nullable<int> tipo_trabajo_id { get; set; }
+
+        [Display(Name = "Artista")]
         public Nullable<int> artista_id { get; set; }
     
         public virtual Artista Artista { get; set; }

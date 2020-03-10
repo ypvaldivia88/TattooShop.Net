@@ -1,39 +1,37 @@
 ﻿@model IEnumerable<TattooShop.Models.Cliente>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Listado Clientes";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.telefono)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.telefono)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
+@section Breadcumb {
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Inicio</a></li>
+        <li class="breadcrumb-item active">Citas</li>
+    </ol>
 }
 
-</table>
+<div class="row el-element-overlay">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="el-card-item">
+                    <div class="el-card-avatar el-overlay-1">
+                        <img src="@Url.Content("~/Content/images/users/1.jpg")" alt="user" />
+                        <div class="el-overlay">
+                            <ul class="el-info">
+                                <li><a class="btn default btn-outline" href="@Url.Action("Edit", new { id = item.id })"><i class="ti-pencil"></i></a></li>
+                                <li><a class="btn default btn-outline" href="@Url.Action("Details", new { id = item.id })"><i class="ti-eye"></i></a></li>
+                                <li><a class="btn default btn-outline" href="@Url.Action("Delete", new { id = item.id })"><i class="ti-eraser"></i></a></li>                            </ul>
+                        </div>
+                    </div>
+                    <div class="el-card-content">
+                        <h3 class="box-title">@Html.DisplayFor(modelItem => item.nombre)</h3> <small>@Html.DisplayFor(modelItem => item.telefono)</small>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>        
+    }
+</div>

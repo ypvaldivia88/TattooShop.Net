@@ -1,66 +1,79 @@
 ﻿@model TattooShop.Models.Trabajo
 
-@{
-    ViewBag.Title = "Details";
+{
+    ViewBag.Title = "Detalles Artista";
 }
 
-<h2>Details</h2>
+@section Breadcumb {
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="@Url.Action("Index")">Artistas</a></li>
+        <li class="breadcrumb-item active">Detalles</li>
+    </ol>
+}
 
-<div>
-    <h4>Trabajo</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.fecha)
-        </dt>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                Detalles
+                <div class="card-actions">
+                    <a href="@Url.Action("Edit", new { id = Model.id })"><i class="ti-pencil"></i> Editar</a>
+                    <a href="@Url.Action("Index")"><i class="ti-arrow-left"></i> Volver</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.fecha)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.fecha)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.fecha)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.precio)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.precio)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.precio)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.precio)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.descripcion)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.descripcion)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.descripcion)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.descripcion)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Artista.nombre)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Artista.nombre)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Artista.nombre)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Artista.nombre)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cita.id)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Cita.id)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cita.id)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Cita.id)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Pago.id)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Pago.id)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Pago.id)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Pago.id)
+                    </dd>
 
-    </dl>
+                </dl>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
